@@ -1,0 +1,24 @@
+<mat-form-field>
+    <mat-label>Nom</mat-label>
+    <input matInput cdkFocusInitial [(ngModel)]="data.task.nom" />
+  </mat-form-field>
+  
+  <mat-form-field>
+    <mat-label>Prenom</mat-label>
+    <textarea matInput [(ngModel)]="data.task.prenom"></textarea>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Point</mat-label>
+    <textarea matInput [(ngModel)]="data.task.point"></textarea>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Date</mat-label>
+    <textarea matInput [(ngModel)]="data.task.dernierPassage"></textarea>
+  </mat-form-field>
+  
+  <div mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="{ task: data.task }">OK</button>
+    <button mat-button (click)="cancel()">Cancel</button>
+  </div>

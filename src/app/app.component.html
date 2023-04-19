@@ -3,6 +3,17 @@
   <span>E-Fidélité</span>
 </mat-toolbar>
 
+<div class="content-wrapper">
+  <button (click)="newTask()" mat-button>
+    <mat-icon>add</mat-icon> Ajouter un client
+  </button>
+
+  <div class="container-wrapper">
+    <div class="container">
+      ...
+    </div>
+</div>
+
 <router-outlet></router-outlet>
 
 <app-task *ngFor="let task of todo" [task]="task"></app-task>
