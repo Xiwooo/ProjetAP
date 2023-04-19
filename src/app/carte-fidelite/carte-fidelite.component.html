@@ -1,0 +1,10 @@
+<mat-card class="item" *ngIf="task" (dblclick)="edit.emit(task)">
+    <h2>{{ task.nom +' '+ task.prenom }}</h2>
+    <h3>
+      {{ 'Total des points' +' '+task.point }}
+    </h3>
+    <p>
+        {{ 'Dernier passage en caisse:' +' '+task.dernierPassage}}
+    </p>
+
+  </mat-card>
