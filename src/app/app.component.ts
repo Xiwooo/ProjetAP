@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Task } from './carte-fidelite/carte-fidelite';
 import { TaskDialogResult } from './task-dialog/task-dialog.component';
 import { TaskDialogComponent } from './task-dialog/task-dialog.component';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,6 +11,8 @@ import { TaskDialogComponent } from './task-dialog/task-dialog.component';
 })
 export class AppComponent {
   title = 'ProjetAP';
+  done: Task[] = [];
+  inProgress: Task[] = [];
   todo: Task[] = [
     {
       nom: 'Le Gal',
@@ -26,8 +29,33 @@ export class AppComponent {
     }
 
     
+
+    
   ];
+
+  editTask(list: 'done' | 'todo' | 'inProgress', task: Task): void {
+    const dialogRef = this.dialog.open(TaskDialogComponent, {
+      width: '270px',
+      data: {
+        task,
+        enableDelete: true,
+      },
+    });
+    dialogRef.afterClosed().subscribe((result: TaskDialogResult|undefined) => {
+      if (!result) {
+        return;
+      }
+      const dataList = this[list];
+      const taskIndex = dataList.indexOf(task);
+      if (result.delete) {
+        dataList.splice(taskIndex, 1);
+      } else {
+        dataList[taskIndex] = task;
+      }
+    });
+  }
   constructor(private dialog: MatDialog) {}
+  
 
   newTask(): void {
     const dialogRef = this.dialog.open(TaskDialogComponent, {
@@ -45,4 +73,5 @@ export class AppComponent {
         this.todo.push(result.task);
       });
   }
+  
 }
