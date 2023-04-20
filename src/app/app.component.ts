@@ -3,6 +3,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { Task } from './carte-fidelite/carte-fidelite';
 import { TaskDialogResult } from './task-dialog/task-dialog.component';
 import { TaskDialogComponent } from './task-dialog/task-dialog.component';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore'; 
+
 
 @Component({
   selector: 'app-root',
@@ -13,6 +15,7 @@ export class AppComponent {
   title = 'ProjetAP';
   done: Task[] = [];
   inProgress: Task[] = [];
+  
   todo: Task[] = [
     {
       nom: 'Le Gal',
@@ -27,9 +30,6 @@ export class AppComponent {
       point : 235,
       dernierPassage : '10/04/2023'
     }
-
-    
-
     
   ];
 
@@ -55,8 +55,6 @@ export class AppComponent {
     });
   }
   constructor(private dialog: MatDialog) {}
-  
-
   newTask(): void {
     const dialogRef = this.dialog.open(TaskDialogComponent, {
       width: '270px',
