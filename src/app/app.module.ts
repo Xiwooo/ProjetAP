@@ -17,11 +17,23 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { TaskComponent } from './carte-fidelite/carte-fidelite.component';
 import { AppRoutingModule } from './app-routing.module';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { SignInComponent } from './components/sign-in/sign-in.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
+import { AuthService } from "./shared/services/auth.service";
 @NgModule({
   declarations: [
     AppComponent,
     TaskComponent,
-    TaskDialogComponent
+    TaskDialogComponent,
+    DashboardComponent,
+    SignInComponent,
+    SignUpComponent,
+    ForgotPasswordComponent,
+    VerifyEmailComponent
   ],
   imports: [
     BrowserModule,
@@ -36,9 +48,10 @@ import { AppRoutingModule } from './app-routing.module';
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
-    DragDropModule
+    DragDropModule,
+    AngularFireAuthModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 
