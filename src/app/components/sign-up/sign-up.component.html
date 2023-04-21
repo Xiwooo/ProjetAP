@@ -6,7 +6,7 @@
           <input
             type="email"
             class="formControl"
-            placeholder="Email Address"
+            placeholder="Adresse mail"
             #userEmail
             required
           />
@@ -15,7 +15,7 @@
           <input
             type="password"
             class="formControl"
-            placeholder="Password"
+            placeholder="Mot de passe"
             #userPwd
             required
           />
@@ -24,7 +24,7 @@
           <input
             type="button"
             class="btn btnPrimary"
-            value="Sign Up"
+            value="S'inscrire"
             (click)="authService.SignUp(userEmail.value, userPwd.value)"
           />
         </div>
