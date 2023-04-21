@@ -1,10 +1,35 @@
-<!-- Top navigation -->
+<div class="content-wrapper">
+  <button (click)="newTask()" mat-button>
+    <mat-icon>add</mat-icon> Ajouter client
+  </button>
+
+  <div class="container-wrapper">
+    <div class="container">
+      <h2>Client</h2>
+
+      <mat-card
+        cdkDropList
+        id="Client"
+        #todoList="cdkDropList"
+        [cdkDropListData]="todo | async"
+        (cdkDropListDropped)="drop($event)"
+        class="list">
+        <p class="empty-label" *ngIf="(todo | async)?.length === 0">Liste de client vide</p>
+        <app-task (edit)="editTask('todo', $event)" *ngFor="let task of todo | async" cdkDrag [task]="task"></app-task>
+      </mat-card>
+    </div>
+  </div>
+</div>
+<!-- Top navigation 
 <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
     <a class="navbar-brand col-sm-3 col-md-2 mr-0">
       <img class="brand-logo" src="assets/logo-positronx-white.svg" alt="positronX.io Logo">
     </a>
   </nav>
+  -->
   <!-- Sidebar navigation -->
+  <!---->
+  <!--
   <div class="container-fluid">
     <div class="row">
       <nav class="col-md-2 d-md-block bg-light sidebar">
@@ -15,7 +40,9 @@
                 <i class="fas fa-user"></i>Profil client
               </a>
             </li>
+            -->
             <!-- Calling SignOut() Api from AuthService -->
+            <!--
             <li class="nav-item">
               <a class="nav-link" (click)="authService.SignOut()">
                 <i class="fas fa-sign-out-alt"></i> Ce déconécter
@@ -24,13 +51,17 @@
           </ul>
         </div>
       </nav>
+    -->
       <!-- Main content -->
+      <!--
       <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
         <div class="inner-adjust">
           <div class="pt-3 pb-2 mb-3 border-bottom">
             <h1 class="h2">Profil client </h1>
           </div>
+          -->
           <!-- Show user data when logged in -->
+          <!--
           <div class="row" *ngIf="authService.userData as user">
             <div class="col-md-12">
               <div class="media">
@@ -47,4 +78,5 @@
         </div>
       </main>
     </div>
-  </div>
+  </div> 
+  -->

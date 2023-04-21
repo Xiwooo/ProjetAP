@@ -2,26 +2,4 @@
   <mat-icon>local_fire_department</mat-icon>
   <span>E-Fidélité</span>
 </mat-toolbar>
-<div class="content-wrapper">
-  <button (click)="newTask()" mat-button>
-    <mat-icon>add</mat-icon> Ajouter client
-  </button>
-
-  <div class="container-wrapper">
-    <div class="container">
-      <h2>Client</h2>
-
-      <mat-card
-        cdkDropList
-        id="Client"
-        #todoList="cdkDropList"
-        [cdkDropListData]="todo | async"
-        (cdkDropListDropped)="drop($event)"
-        class="list">
-        <p class="empty-label" *ngIf="(todo | async)?.length === 0">Liste de client vide</p>
-        <app-task (edit)="editTask('todo', $event)" *ngFor="let task of todo | async" cdkDrag [task]="task"></app-task>
-      </mat-card>
-    </div>
-  </div>
-</div>
 <router-outlet></router-outlet>
