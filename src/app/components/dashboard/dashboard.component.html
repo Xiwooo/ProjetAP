@@ -1,4 +1,4 @@
-<div class="content-wrapper">
+<div *ngIf="isChef() == true" class="content-wrapper">
   <button (click)="newTask()" mat-button>
     <mat-icon>add</mat-icon> Ajouter client
   </button>
@@ -6,7 +6,6 @@
   <div class="container-wrapper">
     <div class="container">
       <h2>Client</h2>
-
       <mat-card
         cdkDropList
         id="Client"

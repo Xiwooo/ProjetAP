@@ -7,6 +7,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { TaskDialogResult, TaskDialogComponent } from '../../task-dialog/task-dialog.component';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
+import { UrlSerializer } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -80,5 +81,13 @@ export class DashboardComponent implements OnInit {
       event.previousIndex,
       event.currentIndex
     );
+  }
+  isChef():boolean{
+    console.log(this.authService.userData.uid)
+    if(this.authService.userData.uid == "a8aAs0GdqaS2Rx1WXnCXtNaTY863"){
+      return true
+    }else{
+      return false
+    }
   }
 }
