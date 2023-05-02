@@ -1,0 +1,31 @@
+form{
+  display: flex;
+  flex-direction: column;
+  align-items:baseline;
+  margin-top: 50px;
+}
+
+input{
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 2px 2px 5px grey;
+  width: 300px;
+}
+
+button{
+  padding: 10px 20px;
+  margin: 20px;
+  border-radius: 5px;
+  border: none;
+  background-color: lightblue;
+  color: white;
+  font-weight: bold;
+  box-shadow: 2px 2px 5px grey;
+  cursor: pointer;
+}
+
+button:hover{
+  background-color: blue;
+}

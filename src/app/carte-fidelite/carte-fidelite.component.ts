@@ -5,7 +5,7 @@ import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-task',
   templateUrl: './carte-fidelite.component.html',
-  //styleUrls: ['./carte-fidelite.component.css']
+  //styleUrls: ['./carte-fidelite.component.scss']
 })
 export class TaskComponent {
   @Input() task: Task | null = null;

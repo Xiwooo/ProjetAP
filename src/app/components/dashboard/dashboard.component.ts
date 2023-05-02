@@ -9,19 +9,17 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
 import { UrlSerializer } from '@angular/router';
 
+
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
-  constructor(private dialog: MatDialog, private store: AngularFirestore,public authService: AuthService) {}
+  constructor(private dialog: MatDialog, private store: AngularFirestore,public authService: AuthService, private afs: AngularFirestore) {}
   ngOnInit(): void {}
   todo = this.store.collection('todo').valueChanges({ idField: 'id' }) as Observable<Task[]>;
-  inProgress = this.store.collection('inProgress').valueChanges({ idField: 'id' }) as Observable<Task[]>;
-  done = this.store.collection('done').valueChanges({ idField: 'id' }) as Observable<Task[]>;
-
-
 
   newTask(): void {
     const dialogRef = this.dialog.open(TaskDialogComponent, {
@@ -60,6 +58,14 @@ export class DashboardComponent implements OnInit {
     });
   }
 
+  displayName: string | undefined;
+  email : string | undefined;
+  onSubmit(){
+    const userRef = this.afs.collection('users').doc(this.authService.userData.uid);
+    userRef.update({displayName : this.displayName,
+    email : this.email});
+  }
+
   drop(event: CdkDragDrop<Task[]|null>): void {
     if (event.previousContainer === event.container) {
       return;
@@ -83,7 +89,6 @@ export class DashboardComponent implements OnInit {
     );
   }
   isChef():boolean{
-    console.log(this.authService.userData.uid)
     if(this.authService.userData.uid == "a8aAs0GdqaS2Rx1WXnCXtNaTY863"){
       return true
     }else{

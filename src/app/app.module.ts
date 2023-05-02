@@ -35,7 +35,7 @@ import { DashboardClientComponent } from './dashboard-client/dashboard-client.co
     SignUpComponent,
     ForgotPasswordComponent,
     VerifyEmailComponent,
-    DashboardClientComponent
+    DashboardClientComponent,
   ],
   imports: [
     BrowserModule,

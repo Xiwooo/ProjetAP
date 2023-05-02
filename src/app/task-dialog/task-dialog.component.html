@@ -2,7 +2,7 @@
     <mat-label>Nom</mat-label>
     <input matInput cdkFocusInitial [(ngModel)]="data.task.nom" />
   </mat-form-field>
-  
+
   <mat-form-field>
     <mat-label>Prenom</mat-label>
     <textarea matInput [(ngModel)]="data.task.prenom"></textarea>
@@ -17,7 +17,12 @@
     <mat-label>Date</mat-label>
     <textarea matInput [(ngModel)]="data.task.dernierPassage"></textarea>
   </mat-form-field>
-  
+
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <textarea matInput [(ngModel)]="data.task.email"></textarea>
+  </mat-form-field>
+
   <div mat-dialog-actions>
     <button mat-button [mat-dialog-close]="{ task: data.task }">OK</button>
     <button mat-button (click)="cancel()">Cancel</button>
@@ -30,5 +35,4 @@
     <mat-icon>delete</mat-icon>
   </button>
   </div>
-  
-  
+

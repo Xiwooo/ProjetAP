@@ -6,4 +6,5 @@ export interface Task {
     nom: string;
     point : number;
     dernierPassage : string;
+    email : string;
   }
