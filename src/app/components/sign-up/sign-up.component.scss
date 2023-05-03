@@ -1,0 +1,124 @@
+.displayTable {
+  display: table;
+  height: 100%;
+  width: 100%;
+}
+
+.displayTableCell {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.authBlock {
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #ffffff;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.authBlock h3 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #4e4e4e;
+  margin-bottom: 20px;
+}
+
+.formGroup {
+  margin-bottom: 20px;
+}
+
+.formControl {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  font-size: 16px;
+  color: #4e4e4e;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btnPrimary {
+  background-color: #007bff;
+}
+
+.btnPrimary:hover {
+  background-color: #0062cc;
+}
+
+.or {
+  display: block;
+  position: relative;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.or:before {
+  content: "";
+  display: block;
+  height: 1px;
+  background-color: #d8d8d8;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+}
+
+.orInner {
+  display: inline-block;
+  background-color: #ffffff;
+  padding: 0 10px;
+  position: relative;
+  top: -12px;
+  font-size: 14px;
+  color: #7f7f7f;
+}
+
+.googleBtn {
+  background-color: #ffffff;
+  border: 1px solid #d8d8d8;
+  color: #4e4e4e;
+}
+
+.googleBtn:hover {
+  background-color: #f2f2f2;
+}
+
+.forgotPassword {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.forgotPassword span {
+  font-size: 14px;
+  color: #7f7f7f;
+}
+
+.redirectToLogin {
+  text-align: center;
+}
+
+.redirectToLogin span {
+  font-size: 14px;
+  color: #7f7f7f;
+}
+
+.redirect {
+  font-weight: bold;
+  color: #007bff;
+  cursor: pointer;
+}
