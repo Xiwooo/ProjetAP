@@ -25,6 +25,10 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
 import { AuthService } from "./shared/services/auth.service";
 import { DashboardClientComponent } from './dashboard-client/dashboard-client.component';
+import { GivePointsComponent } from './components/give-point/give-point.component';
+import { CreateUserComponent } from './components/create-user/create-user.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +40,8 @@ import { DashboardClientComponent } from './dashboard-client/dashboard-client.co
     ForgotPasswordComponent,
     VerifyEmailComponent,
     DashboardClientComponent,
+    GivePointsComponent,
+    CreateUserComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,7 +57,8 @@ import { DashboardClientComponent } from './dashboard-client/dashboard-client.co
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     DragDropModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    ReactiveFormsModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

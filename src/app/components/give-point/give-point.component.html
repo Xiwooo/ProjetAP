@@ -1,0 +1,12 @@
+<div>
+  <label for="user-select">Sélectionner un utilisateur :</label>
+  <select id="user-select" name="user-select" [(ngModel)]="selectedUserId">
+    <option value="">-- Choisir un utilisateur --</option>
+    <option *ngFor="let user of users|async" [value]="user.displayName">{{ user.displayName}}</option>
+  </select>
+  <div>
+    <label for="point-input">Nombre de points :</label>
+    <input type="number" id="point-input" name="point-input" [(ngModel)]="points">
+  </div>
+  <button (click)="givePoints()">Donner des points</button>
+</div>

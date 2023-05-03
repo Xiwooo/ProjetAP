@@ -8,6 +8,7 @@ import { TaskDialogResult, TaskDialogComponent } from '../../task-dialog/task-di
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
 import { UrlSerializer } from '@angular/router';
+import { User} from '../../shared/services/user'
 
 
 
@@ -95,4 +96,5 @@ export class DashboardComponent implements OnInit {
       return false
     }
   }
+
 }
