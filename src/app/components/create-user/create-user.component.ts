@@ -20,7 +20,6 @@ export class CreateUserComponent {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
       displayName: ['', Validators.required],
-      // Ajouter d'autres champs si nécessaire
     });
   }
 
@@ -37,19 +36,14 @@ export class CreateUserComponent {
             displayName: displayName,
             email: email,
             password: password
-            // Ajouter d'autres champs si nécessaire
           });
         })
         .then(() => {
           console.log('Utilisateur créé avec succès.');
-          // Ajouter un message de confirmation pour l'utilisateur
         })
         .catch(error => {
           console.error(error);
-          // Ajouter un message d'erreur pour l'utilisateur
         });
-    } else {
-      // Ajouter un message de validation pour l'utilisateur
     }
   }
 }

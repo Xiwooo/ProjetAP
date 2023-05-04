@@ -13,8 +13,13 @@
       </mat-card>
     </div>
   </div>
+
   <app-give-points></app-give-points>
-  <app-create-user></app-create-user>
+
+  <button (click)="showCreateForm()">Ajouter un utilisateur</button>
+  <div *ngIf="showForm">
+    <app-create-user></app-create-user>
+  </div>
 </div>
 
 <div *ngIf="isChef() == false" class="container-fluid">

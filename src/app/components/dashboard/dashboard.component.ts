@@ -21,6 +21,11 @@ export class DashboardComponent implements OnInit {
   constructor(private dialog: MatDialog, private store: AngularFirestore,public authService: AuthService, private afs: AngularFirestore) {}
   ngOnInit(): void {}
   todo = this.store.collection('todo').valueChanges({ idField: 'id' }) as Observable<Task[]>;
+  showForm = false;
+
+  showCreateForm() {
+    this.showForm = true;
+  }
 
   newTask(): void {
     const dialogRef = this.dialog.open(TaskDialogComponent, {
