@@ -8,6 +8,7 @@ import {
 } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
 
+
 @Injectable({
   providedIn: 'root',
 })
@@ -65,6 +66,7 @@ export class AuthService {
         window.alert(error.message);
       });
   }
+
 
   // Send email verfificaiton when new user sign up
   SendVerificationMail() {
