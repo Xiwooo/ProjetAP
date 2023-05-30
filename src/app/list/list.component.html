@@ -1,0 +1,12 @@
+<form (ngSubmit)="onSubmit()">
+  <label for="listId">ID de la liste :</label>
+  <input type="text" id="listId" [(ngModel)]="listId">
+  <button type="submit">Afficher la liste</button>
+</form>
+
+<div *ngIf="list.id">
+  <h1>{{ list.title }}</h1>
+  <ul>
+    <li *ngFor="let item of list.item">{{ item }}</li>
+  </ul>
+</div>

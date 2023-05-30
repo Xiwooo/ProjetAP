@@ -7,6 +7,8 @@ import {
   AngularFirestoreDocument,
 } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { List } from '../../models/list';
 
 
 @Injectable({
@@ -142,5 +144,9 @@ export class AuthService {
       localStorage.removeItem('user');
       this.router.navigate(['sign-in']);
     });
+  }
+  getListById(listId: string): Observable<List> {
+    const listRef: AngularFirestoreDocument<List> = this.afs.doc(`lists/${listId}`);
+    return listRef.get();
   }
 }

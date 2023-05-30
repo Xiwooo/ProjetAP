@@ -16,9 +16,28 @@
 
   <app-give-points></app-give-points>
 
+  <app-list></app-list>
+
   <button (click)="showCreateForm()">Ajouter un utilisateur</button>
   <div *ngIf="showForm">
     <app-create-user></app-create-user>
+  </div>
+
+
+  <div class content-wrapper>
+  <button (click)="newProduct()" mat-button>
+    <mat-icon>add</mat-icon> Ajouter un produit
+  </button>
+  <div class="container-wrapper">
+    <div class="container">
+      <h2>Produit</h2>
+      <mat-card cdkDropList id="Produit" #productList="cdkDropList" [cdkDropListData]="product | async"
+          (cdkDropListDropped)="dropProduct($event)" class="list">
+          <p class="empty-label" *ngIf="(product | async)?.length === 0">Liste de produit vide</p>
+          <app-product (edit)="editProduct('product', this.product)" *ngFor="let product of product | async" cdkDrag [product]="product"></app-product>
+        </mat-card>
+      </div>
+    </div>
   </div>
 </div>
 

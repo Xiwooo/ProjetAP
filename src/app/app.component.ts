@@ -5,6 +5,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { TaskDialogResult, TaskDialogComponent } from './task-dialog/task-dialog.component';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
+import { Product } from './components/create-product/product';
+import { ProductDialogComponent, ProductDialogResult } from './components/product-dialog/product-dialog.component';
 
 @Component({
   selector: 'app-root',
@@ -14,8 +16,7 @@ import { Observable } from 'rxjs';
 export class AppComponent {
   title = "ProjetAP"
   todo = this.store.collection('todo').valueChanges({ idField: 'id' }) as Observable<Task[]>;
-  inProgress = this.store.collection('inProgress').valueChanges({ idField: 'id' }) as Observable<Task[]>;
-  done = this.store.collection('done').valueChanges({ idField: 'id' }) as Observable<Task[]>;
+  product = this.store.collection('product').valueChanges({ idField: 'uid' }) as Observable<Product[]>;
 
   constructor(private dialog: MatDialog, private store: AngularFirestore) {}
 
@@ -77,5 +78,42 @@ export class AppComponent {
       event.previousIndex,
       event.currentIndex
     );
+  }
+
+  newProduct(): void {
+    const dialogRef = this.dialog.open(ProductDialogComponent, {
+      width: '270px',
+      data: {
+        product: {},
+      },
+    });
+    dialogRef
+      .afterClosed()
+      .subscribe((result: ProductDialogResult) => {
+        if (!result) {
+          return;
+        }
+        this.store.collection('product').add(result.product);
+      });
+  }
+
+  editProduct(list: 'product', product: Product): void {
+    const dialogRef = this.dialog.open(ProductDialogComponent, {
+      width: '270px',
+      data: {
+        product,
+        enableDelete: true,
+      },
+    });
+    dialogRef.afterClosed().subscribe((result: ProductDialogResult) => {
+      if (!result) {
+        return;
+      }
+      if (result.delete) {
+        this.store.collection(list).doc(product.uid).delete();
+      } else {
+        this.store.collection(list).doc(product.uid).update(product);
+      }
+    });
   }
 }

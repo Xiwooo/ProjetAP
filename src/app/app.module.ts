@@ -28,6 +28,10 @@ import { DashboardClientComponent } from './dashboard-client/dashboard-client.co
 import { GivePointsComponent } from './components/give-point/give-point.component';
 import { CreateUserComponent } from './components/create-user/create-user.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ListComponent } from './list/list.component';
+import { ProductComponent } from './components/create-product/create-product.component';
+import { ProductDialogComponent } from './components/product-dialog/product-dialog.component';
+import { ListProductComponent } from './components/list-product/list-product.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +46,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     DashboardClientComponent,
     GivePointsComponent,
     CreateUserComponent,
+    ListComponent,
+    ProductComponent,
+    ProductDialogComponent,
+    ListProductComponent,
   ],
   imports: [
     BrowserModule,

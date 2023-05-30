@@ -24,7 +24,7 @@ export class GivePointsComponent {
   givePoints() {
     if (this.selectedUserId && this.points > 0) {
       const userDoc = this.usersCollection.doc<User>(this.selectedUserId);
-      userDoc.update({ points: this.points });
+      userDoc.update({ points : this.points });
       this.selectedUserId = '';
       this.points = 0;
 
